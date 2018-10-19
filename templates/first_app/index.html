@@ -4,10 +4,34 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width">
-  <link rel="stylesheet" href="{% static "css/style.css" %}">
+  <link rel="stylesheet" href="{% static "css/style.css" %}"/>
   <title>Django Level II</title>
 </head>
 <body>
-  <h1>Victoria Falls Page</h1>
+  <h1>Hi Welcome to Django Level II!</h1>
+  <h1>Here are your access records:</h1>
+
+  <div class="djangtwo">
+    {% if access_records %}
+    <table>
+      <thead>
+        <th>Site Name</th>
+        <th>Date Accessed</th>
+      </thead>
+
+      {% for acc in access_records %}
+
+      <tr>
+        <td>{{ acc.name }}</td>
+        <td>{{ acc.date }}</td>
+      </tr>
+      {% endfor %}
+    </table>
+
+    {% else %}
+      <p> NO ACCESS RECORDS FOUND!</P>
+    {% endif %}
+  </div>
+
 </body>
 </html>
